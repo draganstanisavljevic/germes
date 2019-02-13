@@ -14,7 +14,7 @@ mvn clean test'''
     }
     stage('UI tests') {
       steps {
-        build(job: 'Smoke UI Tests', propagate: true, wait: true)
+        build(job: 'Smoke_UI_Test', propagate: true, wait: true)
       }
     }
   }
