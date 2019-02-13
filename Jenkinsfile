@@ -1,17 +1,21 @@
 pipeline {
   agent any
   stages {
-    stage('unit/Shell ') {
+
+    stage('unit test') {
       steps {
-        sh '''SET PATH=%C:\\apache-maven-3.5.2\\bin%;
-mvn clean test'''
+        withEnv(["PATH+EXTRA=/usr/local/bin"]) {
+          sh 'mvn clean test'
+        }
       }
     }
+
     stage('integration test') {
       steps {
-        sh 'echo "integration test"'
+        sh 'echo \'Integration tests are running\''
       }
     }
+
     stage('UI tests') {
       steps {
         build(job: 'Smoke_UI_Test', propagate: true, wait: true)
