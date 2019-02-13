@@ -8,7 +8,7 @@ pipeline {
     }
     stage('integration test') {
       steps {
-        sh 'echo \'Integration tests are running\''
+        bat 'echo "Integration test"'
       }
     }
     stage('UI tests') {
