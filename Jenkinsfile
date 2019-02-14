@@ -16,5 +16,10 @@ pipeline {
         build(job: 'Smoke_UI_Test', propagate: true, wait: true)
       }
     }
+    stage('Final stage') {
+      steps {
+        bat 'echo "The end"'
+      }
+    }
   }
 }
